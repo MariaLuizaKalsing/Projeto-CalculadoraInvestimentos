@@ -11,7 +11,7 @@
       class="bg-emerald-300 row-span-2 flex flex-col justify-between py-5 px-2"
     >
       <h1 class="text-2xl font-bold px-6">Calculadora de Investimentos</h1>
-      <form class="w-full">
+      <form id="investment-form" class="w-full">
         <!-- 1o input -->
         <div class="flex w-full flex-col px-6 mx-2">
           <label for="starting-amount" class="font-bold text-gray-700"
@@ -28,7 +28,9 @@
               type="text"
               class="w-5/6 rounded-r-lg px-2"
               placeholder="0.00"
+              required
               id="starting-amount"
+              name="starting-amount"
             />
           </div>
         </div>
@@ -49,6 +51,7 @@
               class="w-5/6 rounded-r-lg px-2"
               placeholder="0.00"
               id="additional-contribution"
+              name="additional-contribution"
             />
           </div>
         </div>
@@ -61,10 +64,13 @@
               class="w-2/3 rounded-l-lg px-2"
               placeholder="0"
               id="time-amount"
+              name="time-amount"
+              required
             />
             <!--input type="text" class="w-1/6" value="Mensal" />-->
             <select
               id="time-amount-period"
+              name="time-amount-period"
               class="w-1/3 rounded-r-lg border-l-2 border-emerald-600 text-center hover:bg-emerald-950 hover:text-slate-200"
             >
               <!-- rounded-r-lg buscar por < Cantos arredondados> no site do tailwind-->
@@ -90,10 +96,13 @@
               class="w-1/2 px-2"
               placeholder="0.00"
               id="return-rate"
+              name="return-rate"
+              required
             />
             <!--input type="text" class="w-1/6" value="Mensal" />-->
             <select
               id="evaluation-period"
+              name="evaluation-period"
               class="w-1/3 rounded-r-lg border-l-2 border-emerald-600 text-center hover:bg-emerald-950 hover:text-slate-200"
             >
               <!-- rounded-r-lg buscar por < Cantos arredondados> no site do tailwind-->
@@ -119,6 +128,8 @@
               class="w-5/6 rounded-r-lg px-2"
               placeholder="0.00"
               id="tax-rate"
+              name="tax-rate"
+              required
             />
           </div>
         </div>
@@ -126,6 +137,9 @@
       <!-- gap-2 é o espaço entre os 2 botões; h-12 é a altura de 12 pixels; px-6 é o padding (horizontal) de 6; my6 é a margem y de 6(vertical)-->
       <div class="flex h-12 px-6 my-8 w-full gap-2">
         <button
+          id="calculate-results"
+          form="investment-form"
+          type="submit"
           class="w-1/2 rounded-lg bg-emerald-950 text-slate-200 hover:bg-emerald-800"
         >
           Calcular
@@ -140,5 +154,6 @@
     <main>
       <p>Resultados</p>
     </main>
+    <script type="module" src="./main.js"></script>
   </body>
 </html>
